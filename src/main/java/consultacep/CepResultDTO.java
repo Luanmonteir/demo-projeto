@@ -5,7 +5,6 @@ import lombok.Setter;
 @Getter
 @Setter
 
-
 public class CepResultDTO {
     private String cep;
     private String logradouro;

@@ -9,10 +9,15 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-@RequestMapping("consulta-cep")
+@RequestMapping("/cep")
 public class ConsultaCepAPI {
 
-    @GetMapping("{cep}")
+
+    @GetMapping("/hello")
+    public String helloWorld() {
+        return "Hello, world!";
+    }
+    @GetMapping("/consulta/{cep}")
     public CepResultDTO consultaCep (@PathVariable("cep") String cep) {
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<CepResultDTO> resp =
@@ -22,4 +27,5 @@ public class ConsultaCepAPI {
                                 CepResultDTO.class);
         return resp.getBody();
     }
+
 }
